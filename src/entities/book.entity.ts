@@ -17,7 +17,7 @@ export class Book {
   @Column({ type: 'varchar' })
   title: string;
 
-  @Column({ type: 'text', nullable: true }) 
+  @Column({ type: 'text', nullable: true })
   description?: string;
 
   @Column({ type: 'varchar', nullable: true })

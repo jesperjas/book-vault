@@ -7,7 +7,12 @@ import { AuthorsRepository } from '../author/author.repository';
 
 @Module({
   controllers: [BooksController],
-  providers: [BooksService,BooksRepository, Logger , AuthorService, AuthorsRepository
+  providers: [
+    BooksService,
+    BooksRepository,
+    Logger,
+    AuthorService,
+    AuthorsRepository,
   ],
 })
 export class BooksModule {}

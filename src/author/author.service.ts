@@ -5,16 +5,14 @@ import { Author } from '../entities/author.entity';
 
 @Injectable()
 export class AuthorService {
+  constructor(private readonly authourRepository: AuthorsRepository) {}
 
-    constructor(private readonly authourRepository: AuthorsRepository) { }
+  async create(requestModel: booksDto) {
+    const AuthorEntity = new Author();
 
-    async create(requestModel: booksDto) {
+    AuthorEntity.name = requestModel.authorName;
+    AuthorEntity.bio = requestModel.bio;
 
-        const AuthorEntity = new Author
-
-        AuthorEntity.name = requestModel.authorName;
-        AuthorEntity.bio = requestModel.bio;
-
-        this.authourRepository.saveAuthor(AuthorEntity);
-    }
+    this.authourRepository.saveAuthor(AuthorEntity);
+  }
 }

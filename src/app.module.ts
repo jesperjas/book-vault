@@ -8,8 +8,9 @@ import { AuthorModule } from './author/author.module';
 import { CategoriesModule } from './categories/categories.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(),
-     TypeOrmModule.forRoot({
+  imports: [
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
       port: Number(process.env.DB_PORT),
@@ -24,12 +25,11 @@ import { CategoriesModule } from './categories/categories.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-     BooksModule,
-     AuthorModule,
-     CategoriesModule,
-    ],
+    BooksModule,
+    AuthorModule,
+    CategoriesModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
-
