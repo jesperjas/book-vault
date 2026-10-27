@@ -25,19 +25,11 @@ pipeline {
             }
         }
 
-stage('Install dependencies') {
-    steps {
-        retry(2) {
-            sh '''
-                npm ci \
-                  --maxsockets=1 \
-                  --fetch-retries=5 \
-                  --fetch-retry-mintimeout=1000 \
-                  --fetch-retry-maxtimeout=10000
-            '''
+        stage('Install dependencies') {
+            steps {
+                sh 'npm ci'
+            }
         }
-    }
-}
 
         stage('Build application') {
             steps {
