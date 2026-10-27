@@ -4,12 +4,10 @@ import { booksDto } from './dto/books.requestDto';
 
 @Controller('books')
 export class BooksController {
-  constructor(private readonly booksService: BooksService) { }
+  constructor(private readonly booksService: BooksService) {}
 
-  @Post("/create")
-  async create(
-    @Body() requestDto: booksDto
-  ) {
-    return this.booksService.create(requestDto)
+  @Post('/create')
+  async create(@Body() requestDto: booksDto) {
+˝    return this.booksService.create(requestDto);
   }
 }
